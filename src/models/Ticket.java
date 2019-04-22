@@ -10,6 +10,8 @@ public class Ticket {
     private String name, description;
     private LocalDate dateCreated, dueDate, dateClosed;
     private ArrayList<Narrative> narratives = new ArrayList();
+    private ArrayList<TicketMethod> ticketMethods = new ArrayList();
+    private ArrayList<TicketProperty> ticketProperties = new ArrayList();
 
     public Ticket (int ticketId, User assignedUser, User creator, String name, String description, LocalDate dateCreated, LocalDate dueDate, LocalDate dateClosed)
     {
@@ -97,5 +99,13 @@ public class Ticket {
         narratives.add(narrative);
     }
 
+    public ArrayList<TicketMethod> getTicketMethods()
+    {
+        return ticketMethods;
+    }
 
+    public void addTicketMethod (TicketMethod method)
+    {
+        ticketMethods.add(method);
+    }
 }
