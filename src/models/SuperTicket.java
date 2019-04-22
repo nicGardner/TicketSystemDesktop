@@ -1,10 +1,13 @@
 package models;
 
+import java.util.ArrayList;
+
 public class SuperTicket {
 
     private int super_id;
     private String name;
     private String description;
+    private ArrayList<Ticket> tickets = new ArrayList();
 
     public SuperTicket(int super_id, String name, String description)
     {
@@ -35,5 +38,15 @@ public class SuperTicket {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ArrayList<Ticket> getTickets ()
+    {
+        return tickets;
+    }
+
+    public void addTicket (Ticket ticket)
+    {
+        tickets.add(ticket);
     }
 }

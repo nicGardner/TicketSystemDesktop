@@ -5,6 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.CurrentUser;
+import models.DBConnect;
+
+import java.sql.SQLException;
 
 public class Main extends Application {
 
@@ -18,6 +22,19 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
+        try {
+            if(DBConnect.login("Brea", "pass"))
+            {
+                System.out.println("LOGIN SUCCESSFUL");
+                System.out.println("User ID: "+CurrentUser.getUser_id());
+                System.out.println("Username: "+ CurrentUser.getUsername());
+                System.out.println("Is Admin: "+CurrentUser.isAdmin());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         launch(args);
     }
 }
